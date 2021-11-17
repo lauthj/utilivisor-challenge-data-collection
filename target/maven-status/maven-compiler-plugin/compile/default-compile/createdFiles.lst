@@ -1,0 +1,4 @@
+com\utilivisor\challenge\datacollection\csvToPojo.class
+com\utilivisor\challenge\datacollection\UtilivisorChallengeDataCollectionApplication.class
+com\utilivisor\challenge\datacollection\csvPojo.class
+com\utilivisor\challenge\datacollection\web\DataCollectionController.class
