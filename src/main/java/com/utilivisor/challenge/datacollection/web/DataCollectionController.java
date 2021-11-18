@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.utilivisor.challenge.datacollection.csvPojo;
+
 @Controller
 public class DataCollectionController {
 
@@ -20,13 +22,13 @@ public class DataCollectionController {
 
     @RequestMapping(value="/data-collection", method = RequestMethod.POST)
     @ResponseBody
-    public List<PointHistory> results(@RequestParam MultipartFile file, ModelMap modelMap) { 
+    public List<csvPojo> results(@RequestParam MultipartFile file, ModelMap modelMap) { 
 //    public String results(@RequestParam MultipartFile file, ModelMap modelMap)
     	
     	PointHistory pointHistory = new PointHistory();
     	modelMap.addAttribute("files", file);
     	
-		return null;
+		return pointHistory.pojoList;
 		
     }
 
