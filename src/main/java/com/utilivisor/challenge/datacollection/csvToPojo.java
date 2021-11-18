@@ -7,21 +7,23 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
-
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import com.utilivisor.challenge.datacollection.web.PointHistory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class csvToPojo {
-//	private static CSVRecord record;
+	
+	//	private static CSVRecord record;
 	TimeZone tz = TimeZone.getTimeZone("Etc/GMT0");
+	public static List<csvPojo> pojoList = new ArrayList<csvPojo>();
 	//head auto detection
 	public static void main(String[] args) throws IOException {
 		Reader in = new FileReader("./wide-csv-example.csv");
 		Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
-		List<csvPojo> pojoList = new ArrayList<csvPojo>();
+		
 		csvPojo pojo = null;
 		ObjectMapper objectMapper = new ObjectMapper();
 	    //Set pretty printing of json
@@ -49,9 +51,10 @@ public class csvToPojo {
 		    
 		    pojoList.add(pojo);
 		    
-
 			
 		}
+		
+		PointHistory.addList(pojoList);
 		
 		//1. Convert List of pojo objects to JSON
         String arrayToJson = objectMapper.writeValueAsString(pojoList);
@@ -59,13 +62,16 @@ public class csvToPojo {
         System.out.println(arrayToJson);
         
         try {
-            FileWriter file = new FileWriter("./output.json");
-            file.write(arrayToJson.toString());
-            file.close();
-         } catch (IOException e) {
-            e.printStackTrace();
-         }
-         System.out.println("JSON file created: ");
+        	FileWriter file = new FileWriter("./output.json");
+        	file.write(arrayToJson.toString());
+        	file.close();
+        } catch (IOException e) {
+        	e.printStackTrace();
+        }
+        System.out.println("JSON file created: ");
 	}
 
+	public static List<csvPojo> getPojoList() {
+		return pojoList;
+	}
 }
