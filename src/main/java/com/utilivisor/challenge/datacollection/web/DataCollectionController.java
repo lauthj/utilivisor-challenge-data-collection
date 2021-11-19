@@ -25,10 +25,9 @@ public class DataCollectionController {
     public List<csvPojo> results(@RequestParam MultipartFile file, ModelMap modelMap) { 
 //    public String results(@RequestParam MultipartFile file, ModelMap modelMap)
     	
-    	PointHistory pointHistory = new PointHistory();
+//    	PointHistory pointHistory = new PointHistory();
     	modelMap.addAttribute("files", file);
-    	
-		return pointHistory.pojoList;
+		return PointHistory.pojoList;
 		
     }
 
