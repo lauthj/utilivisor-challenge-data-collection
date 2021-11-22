@@ -40,7 +40,6 @@ public class ExampleDate {
         }
         // Adding comment - testing push
         // again
-        // again
     }
 
 }
