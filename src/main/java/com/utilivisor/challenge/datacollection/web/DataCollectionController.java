@@ -19,7 +19,11 @@ public class DataCollectionController {
     public String form(){
         return "form";
     }
-
+    
+//  @RequestMapping(value="/data-collection", method = RequestMethod.POST)
+//  @ResponseBody
+//  public List<PointHistory> results(@RequestParam MultipartFile file, ModelMap modelMap) {}
+    
     @RequestMapping(value="/data-collection", method = RequestMethod.POST)
     @ResponseBody
     public List<csvPojo> results(@RequestParam MultipartFile file, ModelMap modelMap) { 
