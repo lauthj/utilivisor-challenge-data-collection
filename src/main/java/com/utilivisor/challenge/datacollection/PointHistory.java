@@ -1,10 +1,8 @@
 package com.utilivisor.challenge.datacollection;
 
-import java.util.Date;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class csvPojo {
+public class PointHistory {
 
 	    @DateTimeFormat(pattern = "dd-MM-yyyy hh:mm:ss")
 		private String timeStamp;
@@ -14,7 +12,7 @@ public class csvPojo {
 	    private String _01_47B_717_UNIVERSITY_CONDMT;
 	    private String _02_62D_SLIVKA_CON_MT_KLBS;
 
-	    public csvPojo(String timeStamp, String first, String second, String third, String fourth, String fifth ) {
+	    public PointHistory(String timeStamp, String first, String second, String third, String fourth, String fifth ) {
 	        this.timeStamp = timeStamp;
 	        this._01_15B_2331_SHERIDAN_CONDMT = first;
 	        this._02_67B_RYAN_HALL_CHW_TON_HR = second;

@@ -14,7 +14,7 @@ public class ExampleDate {
     static TimeZone europeanTimeZone = TimeZone.getTimeZone("Europe/London"); //Target timezone
 	public static void main(String[] argv) {
 		
-		csvPojo pojo = new csvPojo("10-Jan-21 2:15:00 PM", "first", "second", "third", "fourth", "fifth");
+		PointHistory pojo = new PointHistory("10-Jan-21 2:15:00 PM", "first", "second", "third", "fourth", "fifth");
 		try {
 			datestamp = pojo.getTimeStamp();
 		} catch (Exception e) {
